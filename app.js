@@ -1,23 +1,23 @@
 'use strict';
 
-function fruit() { }
+function fruit () { };
 
-fruit.curr_c = null;
-fruit.curr_o = null;
-
-fruit.getContainer = function () { return $('.live-div'); };
-fruit.getItemList = function () { return $('.fruit-list'); };
-
-function myFunction() {
-    var input, filter, li, a, i, txtValue;
+fruit.listFiltering = () => {
+    var input, filter, li, name, family, i, txtValue_1, txtValue_2;
     input = $('.search-input');
     filter = input.val().toUpperCase();
     li = $('.item-div');
 
     for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName('a')[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        name = li[i].querySelectorAll('a.col-name')[0];
+        family = li[i].querySelectorAll('a.col-family')[0];
+
+        txtValue_1 = name.textContent || name.innerText;
+        txtValue_2 = family.textContent || family.innerText;
+
+        if (txtValue_1.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = '';
+        } else if (txtValue_2.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = '';
         } else {
             li[i].style.display = 'none';
@@ -25,13 +25,13 @@ function myFunction() {
     }
 }
 
-fruit.init = function () {
-    var l, c0, ct, c2, u, p;
+fruit.init = () => {
+    var c0, ct, c2;
 
-    c0 = fruit.getContainer()
+    c0 = $('.live-div');
 
     $.getJSON("data.json", function(d){
-        var il = c0.find('.fruit-list');
+        var il = $('.fruit-list');
         il.html('');
         ct = $('.item-div0');
 
@@ -43,12 +43,13 @@ fruit.init = function () {
             c2.find('.col-family').text(item.family);
             il.append(c2);
         });
+        
     }).fail(function(){
         console.log("An error has occurred.");
     });
 
-    $('.search-input').keyup(function(){
-        myFunction()
+    $('.search-input').keyup(() => {
+        fruit.listFiltering()
     })
 };
 
