@@ -1,0 +1,29 @@
+.flx-nw {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.live-list {
+    border-right: 1px solid black;
+    height: 400px;
+    width: 30%;
+    overflow-y: scroll;
+}
+
+.item-div {
+    padding: 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+    border-bottom: 1px solid #e0dede;
+}
+
+.item-div:hover {
+    background-color: #82c0ff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.template-div {
+    display: none;
+}
