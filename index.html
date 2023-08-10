@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="app.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="live-div">
-        <div class="flx-nw">
+    <div class="main-div">
+        <div class="flx-nw input-div ">
         Search:&nbsp<input class="search-input">
         </div>
-        <div class="fruit-list"></div>
+        <div class="flx-nw box">
+            <div class="fruit-list"></div>
+            <div class="">
+                <div class="fruit-form">
+                    <div>Fruit Name:</div>
+                    <input class="input-div fruit-name-input">
+                    <div>Fruit Family:</div>
+                    <input class="input-div fruit-family-input">
+                </div>
+                <button class="save-input-btn">Save</button>
+                <button class="clean-input-btn">Clean</button>
+            </div>
+        </div>
     </div>
 
     <div class="template-div">
-        <div class="item-div0">
-            <div class="flx-nw">
-                Name:&nbsp<a class="col-name"></a>
+        <div class="flx-nw item-div0">
+            <div class="item-data">
+                <div class="flx-nw">
+                    Name:&nbsp<a class="item-name"></a>
+                </div>
+                <div class="flx-nw">
+                    Family:&nbsp<a class="item-family"></a>
+                </div>
             </div>
-            <div class="flx-nw">
-                Family:&nbsp<a class="col-family"></a>
-            </div>
+            <button class="material-symbols-outlined item-delete">
+            delete_forever
+            </button>
         </div>
     </div>
 
