@@ -80,7 +80,9 @@ FruitManager.prototype.handleItemSave = function() {
 
 FruitManager.prototype.handleItemRemove = function(e) {
     const item = $(e.currentTarget).closest('.item-div');
-
+    
+    this.resetInputFields();
+    
     item.fadeOut(100, () => {
         item.remove();    
     });
